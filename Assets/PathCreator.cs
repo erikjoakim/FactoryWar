@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PathCreator : MonoBehaviour {
 
@@ -15,6 +16,8 @@ public class PathCreator : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         RaycastHit hit;
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         Terrain terrain = GetComponent<Terrain>();
